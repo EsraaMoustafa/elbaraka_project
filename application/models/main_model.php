@@ -1,0 +1,56 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Main_model extends CI_Model {
+    
+    public function __construct()
+    {
+        parent::__construct();
+	$this->load->database();
+    }
+    public function addNews($data){
+	$this->db->insert('news', $data);
+
+    }
+    public function editNews($id,$data){
+	$this->db->where('id', $id);
+	$this->db->update('news' , $data);
+
+    }
+    public function listNews(){
+	$this->db->order_by('inserted', "desc");
+	$query = $this->db->get('news');
+        return $query->result_array();
+    }
+    public function listUiNews(){
+	$this->db->order_by('inserted', "desc");
+	$this->db->limit('9');
+	$query = $this->db->get('news');
+        return $query->result_array();
+    }
+    public function getNews($id)
+    {
+        $query=$this->db->get_where('news',array('id'=>$id));
+        return $query->result_array();
+    }
+    public function deleteNews($id){
+	$this->db->delete('news', array('id' => $id));
+    }
+    public function addImage($data){
+	$this->db->insert('images', $data);
+
+    }
+    public function listImages(){
+	$this->db->order_by('inserted', "desc");
+	$query = $this->db->get('images');
+        return $query->result_array();
+    }
+    public function listUiImages(){
+	$this->db->order_by('inserted', "desc");
+	$this->db->limit('9');
+	$query = $this->db->get('images');
+        return $query->result_array();
+    }
+    public function deleteImage($id){
+	$this->db->delete('images', array('id' => $id));
+    }
+}

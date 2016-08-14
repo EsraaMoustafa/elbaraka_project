@@ -1,0 +1,61 @@
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Images</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			
+                	<div class="login-panel panel panel-default" id="login_div">
+                    		<div class="panel-heading">
+                        		<h3 class="panel-title">تسجيل الدخول</h3>
+                    		</div>
+                    		<div class="panel-body">
+					<?php echo form_open("main/login");?>
+                            		<fieldset>
+                                		<div class="form-group">           
+							<?php $data=array(
+                          					"type"=>"email",
+                          					"name"=>"email",
+                          					"id"=>"email",
+								"placeholder"=>"Enter Email Address",
+                          					"required"=>"required"
+								"class"=>"form-control"
+                    						);
+                    
+                    					echo form_input($data); ?>
+                                		</div>
+                                		<div class="form-group">
+                                   			<?php $data=array(
+                          						"type"=>"password",
+                          						"name"=>"password",
+                         						"id"=>"password",
+                          						"placeholder"=>"Enter Password Here",
+                          						"required"=>"required",
+			  						"class"=>"form-control"
+                    						);
+                     			 		echo form_input($data); ?>
+                                		</div>
+							<?php $data=array(
+                          					"type"=>"submit",
+                          					"name"=>"commit",
+                          					"value"=>"Login",
+			  					"class"=>"btn btn-lg btn-success btn-block"
+			
+                    						);
+                     						echo form_submit($data); ?>
+						
+					</fieldset>
+					<?php echo form_close(); ?>
+                            
+                       
+                    	</div>
+                </div>
+            </div>
+Chat Conversation End
+
+	    </div>
+</div>

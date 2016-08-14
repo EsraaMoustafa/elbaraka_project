@@ -1,0 +1,21 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Images_model extends CI_Model {
+    
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function addNews($data){
+	$this->db->insert('images', $data);
+
+    }
+    public function listNews(){
+	$this->db->order_by('inserted', "desc");
+	$query = $this->db->get('images');
+        return $query->result_array();
+    }
+    public function deleteNews($id){
+	$this->db->delete('images', array('id' => $id));
+    }
+}

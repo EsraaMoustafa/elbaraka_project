@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /elbaraka
+RewriteRule . index.php [L]
